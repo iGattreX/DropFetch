@@ -1,0 +1,23 @@
+# deps / builds
+node_modules/
+dist/
+web/node_modules/
+web/dist/
+
+# runtime data (SQLite DB, Telegram session)
+data/
+
+# downloaded files
+downloads/
+
+# secrets
+.env
+.env.*
+!.env.example
+
+# AI coding assistant local config (personal permissions/session state, not project source)
+.claude/
+
+# misc
+*.log
+.DS_Store
