@@ -175,6 +175,12 @@ Useful commands: `pm2 status`, `pm2 logs dropfetch`, `pm2 restart dropfetch`.
    read** button clears both at once — across every open session. All state
    changes (read markers, keywords, channels, settings, theme) push live over
    the WebSocket to every open tab and device.
+
+   > **Storage note:** DropFetch never deletes or expires files on its own —
+   > everything it downloads stays in the download folder indefinitely. With
+   > several large files landing daily, that adds up over weeks and months.
+   > Check in on the folder (or the Files tab) periodically and clean out
+   > anything you no longer need.
 5. **Alerts / bell icon** — a toast pops up (with a notification sound —
    pick from knock, ding, chime, and more in Settings, with preview) the
    moment a file is downloaded; the bell keeps the history with unread
