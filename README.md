@@ -6,10 +6,7 @@ A lightweight personal app that watches your Telegram channels and auto-download
 files **before the channels' auto-delete policy removes them**.
 
 Built with Node.js/TypeScript (Fastify + GramJS + SQLite) and a Svelte PWA
-frontend. Commands below use PowerShell and assume Windows (the pm2-as-a-
-Windows-service section in particular is Windows-specific); the Node/Fastify
-backend itself is not Windows-only, but only the Windows setup path has been
-tested end to end. Requires Node.js 18+.
+frontend.
 
 - Monitors channels you select, in real time, using **your own Telegram account**
   (a user session via [GramJS](https://gram.js.org/) — not a bot, so it can read
@@ -47,6 +44,20 @@ managing their own Telegram content — not a hosted service, and nothing here
 is legal advice.
 
 ---
+
+## Prerequisites
+
+- **Node.js 18+** and npm
+- **Git**, to clone the repo
+- A **Telegram account** with a phone number you can receive login codes on
+- **Windows** — the setup and background-running steps below use PowerShell
+  and are written for Windows, including the pm2-as-a-Windows-service section.
+  The Node.js/Fastify backend itself isn't Windows-specific, but only the
+  Windows path has been tested end to end.
+- Optional, only needed for their respective features (each is covered in its
+  own section below): [cloudflared](https://github.com/cloudflare/cloudflared)
+  for remote access, and [pm2](https://pm2.keymetrics.io/) for running in the
+  background.
 
 ## 1. Get a Telegram API ID and hash
 
