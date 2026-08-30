@@ -205,7 +205,12 @@ export async function buildServer() {
         unread: notification ? !notification.read : undefined,
       });
     }
-    entries.sort((a, b) => b.modifiedAt.localeCompare(a.modifiedAt));
+    // Sort by when the message was sent in Telegram, not when it was
+    // downloaded — those can differ (e.g. a catch-up sweep). Files that
+    // predate sent-time tracking fall back to download time so they don't
+    // land out of place.
+    const sortKey = (f: FileEntry) => f.sentAt ?? f.downloadedAt ?? f.modifiedAt;
+    entries.sort((a, b) => sortKey(b).localeCompare(sortKey(a)));
     return entries;
   });
 
